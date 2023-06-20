@@ -1,0 +1,293 @@
+{
+  "version": "31.0.0",
+  "artifacts": {
+    "prod-my-remix-app-Site.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "prod-my-remix-app-Site.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "prod-my-remix-app-Site": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://140752286971/us-east-1",
+      "properties": {
+        "templateFile": "prod-my-remix-app-Site.template.json",
+        "tags": {
+          "sst:app": "my-remix-app",
+          "sst:stage": "prod"
+        },
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::140752286971:role/cdk-hnb659fds-deploy-role-140752286971-us-east-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::140752286971:role/cdk-hnb659fds-cfn-exec-role-140752286971-us-east-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-140752286971-us-east-1/feecab65d839e933513d83433b7c11f6ce2e63fb738c303949552c7a79e7cf26.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "prod-my-remix-app-Site.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::140752286971:role/cdk-hnb659fds-lookup-role-140752286971-us-east-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "prod-my-remix-app-Site.assets"
+      ],
+      "metadata": {
+        "/prod-my-remix-app-Site": [
+          {
+            "type": "aws:cdk:stack-tags",
+            "data": [
+              {
+                "Key": "sst:app",
+                "Value": "my-remix-app"
+              },
+              {
+                "Key": "sst:stage",
+                "Value": "prod"
+              }
+            ]
+          }
+        ],
+        "/prod-my-remix-app-Site/CustomResourceHandler/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomResourceHandlerServiceRole41AEC181"
+          }
+        ],
+        "/prod-my-remix-app-Site/CustomResourceHandler/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomResourceHandlerE8FB56BA"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/AwsCliLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteAwsCliLayer359A0EF0"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/S3Bucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteS3Bucket2B2851F3"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/S3Bucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteS3BucketPolicyBB4DF05F"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/S3Bucket/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteS3BucketAutoDeleteObjectsCustomResource3E10A2DE"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/ServerFunction/AssetReplacerPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteServerFunctionAssetReplacerPolicy304BF125"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/ServerFunction/AssetReplacer/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteServerFunctionAssetReplacer9A11D516"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/ServerFunction/ServerFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteServerFunctionServiceRole8328A688"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/ServerFunction/ServerFunction/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteServerFunctionServiceRoleDefaultPolicy6EA49472"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/ServerFunction/ServerFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteServerFunction6DFA6F1B"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/ServerFunction/ServerFunction/LogRetention/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteServerFunctionLogRetention7123678D"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/ServerFunction/ServerFunction/FunctionUrl/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteServerFunctionFunctionUrl1B09C490"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/ServerFunction/ServerFunction/invoke-function-url": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteServerFunctioninvokefunctionurlEABB57E1"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/S3Uploader/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteS3UploaderServiceRole973F5A0B"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/S3Uploader/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteS3UploaderServiceRoleDefaultPolicy8BA893D3"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/S3Uploader/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteS3Uploader2837C218"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/S3Handler/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteS3HandlerServiceRole6D2CC8E3"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/S3Handler/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteS3HandlerServiceRoleDefaultPolicy1BD27252"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/S3Handler/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteS3Handler84D19388"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/S3Deployment/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteS3DeploymentB932FFDB"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/CloudFrontFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteCloudFrontFunctionE91DD486"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/ServerCache/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteServerCacheDD54ACDF"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/Distribution/Origin2/S3Origin/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteDistributionOrigin2S3Origin49B86EE9"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/Distribution/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteDistribution706F5265"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/ServerFunctionInvalidatorPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteServerFunctionInvalidatorPolicy004B2ED1"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/CloudFrontInvalidatorPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteCloudFrontInvalidatorPolicyEE18C654"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/CloudFrontInvalidator/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteCloudFrontInvalidator18BEA866"
+          }
+        ],
+        "/prod-my-remix-app-Site/site/Parameter_url/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "siteParameterurl3D1716BC"
+          }
+        ],
+        "/prod-my-remix-app-Site/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+          }
+        ],
+        "/prod-my-remix-app-Site/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
+          }
+        ],
+        "/prod-my-remix-app-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB"
+          }
+        ],
+        "/prod-my-remix-app-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB"
+          }
+        ],
+        "/prod-my-remix-app-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A"
+          }
+        ],
+        "/prod-my-remix-app-Site/SSTStackOutputurl": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "url"
+          }
+        ],
+        "/prod-my-remix-app-Site/SSTStackOutputSSTMetadata": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SSTMetadata"
+          }
+        ],
+        "/prod-my-remix-app-Site/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/prod-my-remix-app-Site/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "prod-my-remix-app-Site"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}

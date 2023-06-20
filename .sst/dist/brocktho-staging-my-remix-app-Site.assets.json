@@ -1,0 +1,62 @@
+{
+  "version": "31.0.0",
+  "files": {
+    "bd396d553feb15e9abcce81a72956eb7477e0db65fa93d03a33d807277aad30a": {
+      "source": {
+        "path": "asset.bd396d553feb15e9abcce81a72956eb7477e0db65fa93d03a33d807277aad30a",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "140752286971-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-140752286971-us-east-1",
+          "objectKey": "bd396d553feb15e9abcce81a72956eb7477e0db65fa93d03a33d807277aad30a.zip",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::140752286971:role/cdk-hnb659fds-file-publishing-role-140752286971-us-east-1"
+        }
+      }
+    },
+    "e395a9a55f36b3b4a846e9af93c472c234bb2188f79fa700d7076de585f6b61f": {
+      "source": {
+        "path": "asset.e395a9a55f36b3b4a846e9af93c472c234bb2188f79fa700d7076de585f6b61f.zip",
+        "packaging": "file"
+      },
+      "destinations": {
+        "140752286971-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-140752286971-us-east-1",
+          "objectKey": "e395a9a55f36b3b4a846e9af93c472c234bb2188f79fa700d7076de585f6b61f.zip",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::140752286971:role/cdk-hnb659fds-file-publishing-role-140752286971-us-east-1"
+        }
+      }
+    },
+    "5fa1330271b8967d9254ba2d4a07144f8acefe8b77e6d6bba38261373a50d5f8": {
+      "source": {
+        "path": "asset.5fa1330271b8967d9254ba2d4a07144f8acefe8b77e6d6bba38261373a50d5f8",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "140752286971-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-140752286971-us-east-1",
+          "objectKey": "5fa1330271b8967d9254ba2d4a07144f8acefe8b77e6d6bba38261373a50d5f8.zip",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::140752286971:role/cdk-hnb659fds-file-publishing-role-140752286971-us-east-1"
+        }
+      }
+    },
+    "43ced301258cbc7f9838eba821d80e1cff6082423a57b9819dc8bb6405ec8da8": {
+      "source": {
+        "path": "brocktho-staging-my-remix-app-Site.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "140752286971-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-140752286971-us-east-1",
+          "objectKey": "43ced301258cbc7f9838eba821d80e1cff6082423a57b9819dc8bb6405ec8da8.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::140752286971:role/cdk-hnb659fds-file-publishing-role-140752286971-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
