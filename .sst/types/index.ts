@@ -7,7 +7,21 @@ declare module "sst/node/config" {
 }import "sst/node/config";
 declare module "sst/node/config" {
   export interface SecretResources {
-    "DATABASE_URL": {
+    "DATABASE_HOST": {
+      value: string;
+    }
+  }
+}import "sst/node/config";
+declare module "sst/node/config" {
+  export interface SecretResources {
+    "DATABASE_USERNAME": {
+      value: string;
+    }
+  }
+}import "sst/node/config";
+declare module "sst/node/config" {
+  export interface SecretResources {
+    "DATABASE_PASSWORD": {
       value: string;
     }
   }

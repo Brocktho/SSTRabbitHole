@@ -1,5 +1,5 @@
 {
-  "version": "31.0.0",
+  "version": "32.0.0",
   "files": {
     "bd396d553feb15e9abcce81a72956eb7477e0db65fa93d03a33d807277aad30a": {
       "source": {
@@ -15,15 +15,15 @@
         }
       }
     },
-    "e395a9a55f36b3b4a846e9af93c472c234bb2188f79fa700d7076de585f6b61f": {
+    "9b84b669d3f3a7c60e8af02574c1d9b9baca32cc2dc9f5318fa9fa0c85456992": {
       "source": {
-        "path": "asset.e395a9a55f36b3b4a846e9af93c472c234bb2188f79fa700d7076de585f6b61f.zip",
+        "path": "asset.9b84b669d3f3a7c60e8af02574c1d9b9baca32cc2dc9f5318fa9fa0c85456992.zip",
         "packaging": "file"
       },
       "destinations": {
         "140752286971-us-east-1": {
           "bucketName": "cdk-hnb659fds-assets-140752286971-us-east-1",
-          "objectKey": "e395a9a55f36b3b4a846e9af93c472c234bb2188f79fa700d7076de585f6b61f.zip",
+          "objectKey": "9b84b669d3f3a7c60e8af02574c1d9b9baca32cc2dc9f5318fa9fa0c85456992.zip",
           "region": "us-east-1",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::140752286971:role/cdk-hnb659fds-file-publishing-role-140752286971-us-east-1"
         }
@@ -43,7 +43,7 @@
         }
       }
     },
-    "43ced301258cbc7f9838eba821d80e1cff6082423a57b9819dc8bb6405ec8da8": {
+    "cfb87cbeaffcf88c4b15d9bd07e27d1147dd1e009f3667dd01c419f25519095f": {
       "source": {
         "path": "brocktho-staging-my-remix-app-Site.template.json",
         "packaging": "file"
@@ -51,7 +51,7 @@
       "destinations": {
         "140752286971-us-east-1": {
           "bucketName": "cdk-hnb659fds-assets-140752286971-us-east-1",
-          "objectKey": "43ced301258cbc7f9838eba821d80e1cff6082423a57b9819dc8bb6405ec8da8.json",
+          "objectKey": "cfb87cbeaffcf88c4b15d9bd07e27d1147dd1e009f3667dd01c419f25519095f.json",
           "region": "us-east-1",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::140752286971:role/cdk-hnb659fds-file-publishing-role-140752286971-us-east-1"
         }

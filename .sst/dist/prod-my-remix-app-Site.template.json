@@ -251,7 +251,7 @@
      ]
     },
     "bucket": "cdk-hnb659fds-assets-140752286971-us-east-1",
-    "key": "1523d2a427a4d0ed38b73b8d8625d54cec8020156c7b86a93ebf2279036c3600.zip",
+    "key": "49fa0e87dfb544ec3dd41c2f95ef3510ffcd215af9b954bd52a82c7cf8af2762.zip",
     "replacements": []
    },
    "DependsOn": [
@@ -321,7 +321,7 @@
            {
             "Ref": "AWS::Partition"
            },
-           ":ssm:us-east-1:140752286971:parameter/sst/my-remix-app/prod/Secret/DATABASE_URL/value"
+           ":ssm:us-east-1:140752286971:parameter/sst/my-remix-app/prod/Secret/DATABASE_HOST/value"
           ]
          ]
         },
@@ -333,7 +333,67 @@
            {
             "Ref": "AWS::Partition"
            },
-           ":ssm:us-east-1:140752286971:parameter/sst/my-remix-app/.fallback/Secret/DATABASE_URL/value"
+           ":ssm:us-east-1:140752286971:parameter/sst/my-remix-app/.fallback/Secret/DATABASE_HOST/value"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": "ssm:GetParameters",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":ssm:us-east-1:140752286971:parameter/sst/my-remix-app/prod/Secret/DATABASE_USERNAME/value"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":ssm:us-east-1:140752286971:parameter/sst/my-remix-app/.fallback/Secret/DATABASE_USERNAME/value"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": "ssm:GetParameters",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":ssm:us-east-1:140752286971:parameter/sst/my-remix-app/prod/Secret/DATABASE_PASSWORD/value"
+          ]
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           "arn:",
+           {
+            "Ref": "AWS::Partition"
+           },
+           ":ssm:us-east-1:140752286971:parameter/sst/my-remix-app/.fallback/Secret/DATABASE_PASSWORD/value"
           ]
          ]
         }
@@ -425,7 +485,7 @@
    "Properties": {
     "Code": {
      "S3Bucket": "cdk-hnb659fds-assets-140752286971-us-east-1",
-     "S3Key": "1523d2a427a4d0ed38b73b8d8625d54cec8020156c7b86a93ebf2279036c3600.zip"
+     "S3Key": "49fa0e87dfb544ec3dd41c2f95ef3510ffcd215af9b954bd52a82c7cf8af2762.zip"
     },
     "Role": {
      "Fn::GetAtt": [
@@ -442,7 +502,9 @@
       "SST_APP": "my-remix-app",
       "SST_STAGE": "prod",
       "SST_SSM_PREFIX": "/sst/my-remix-app/prod/",
-      "SST_Secret_value_DATABASE_URL": "__FETCH_FROM_SSM__",
+      "SST_Secret_value_DATABASE_HOST": "__FETCH_FROM_SSM__",
+      "SST_Secret_value_DATABASE_USERNAME": "__FETCH_FROM_SSM__",
+      "SST_Secret_value_DATABASE_PASSWORD": "__FETCH_FROM_SSM__",
       "SST_Secret_value_SESSION_SECRET": "__FETCH_FROM_SSM__"
      }
     },
@@ -868,7 +930,7 @@
     "Sources": [
      {
       "BucketName": "cdk-hnb659fds-assets-140752286971-us-east-1",
-      "ObjectKey": "1dd714e6c9b680246f1d7cc87b7d7720a500ca886dfacef4815fb0da3ffc5c3b.zip"
+      "ObjectKey": "faff5ecafd4823ab2fef82cb423abf22f7dadad0913815be3f495a8e74308895.zip"
      }
     ],
     "DestinationBucketName": {
@@ -1397,7 +1459,7 @@
     "Fn::Join": [
      "",
      [
-      "{\"app\":\"my-remix-app\",\"stage\":\"prod\",\"version\":\"2.15.0\",\"metadata\":[{\"id\":\"DATABASE_URL\",\"addr\":\"c83cfbf96b742884de95c4bc2efba49cc4e32df989\",\"stack\":\"prod-my-remix-app-Site\",\"type\":\"Secret\",\"data\":{\"name\":\"DATABASE_URL\"}},{\"id\":\"SESSION_SECRET\",\"addr\":\"c85e12e3771ba75604b04cac83dc8685d871f1aa8b\",\"stack\":\"prod-my-remix-app-Site\",\"type\":\"Secret\",\"data\":{\"name\":\"SESSION_SECRET\"}},{\"id\":\"site\",\"addr\":\"c8a7ffff667282b507eee5f0717361d23e008a6dfc\",\"stack\":\"prod-my-remix-app-Site\",\"type\":\"RemixSite\",\"data\":{\"mode\":\"deployed\",\"path\":\".\",\"url\":\"https://",
+      "{\"app\":\"my-remix-app\",\"stage\":\"prod\",\"version\":\"2.16.1\",\"metadata\":[{\"id\":\"DATABASE_HOST\",\"addr\":\"c8e988dea77fb9e3a37e06c0ad8b74c0443e250e41\",\"stack\":\"prod-my-remix-app-Site\",\"type\":\"Secret\",\"data\":{\"name\":\"DATABASE_HOST\"}},{\"id\":\"DATABASE_USERNAME\",\"addr\":\"c8c1475d40bad1422b6d57fb53d6f607619fdc18ad\",\"stack\":\"prod-my-remix-app-Site\",\"type\":\"Secret\",\"data\":{\"name\":\"DATABASE_USERNAME\"}},{\"id\":\"DATABASE_PASSWORD\",\"addr\":\"c84d693599a19dc63a3be69d39f9f0ece54705b8b2\",\"stack\":\"prod-my-remix-app-Site\",\"type\":\"Secret\",\"data\":{\"name\":\"DATABASE_PASSWORD\"}},{\"id\":\"SESSION_SECRET\",\"addr\":\"c85e12e3771ba75604b04cac83dc8685d871f1aa8b\",\"stack\":\"prod-my-remix-app-Site\",\"type\":\"Secret\",\"data\":{\"name\":\"SESSION_SECRET\"}},{\"id\":\"site\",\"addr\":\"c8a7ffff667282b507eee5f0717361d23e008a6dfc\",\"stack\":\"prod-my-remix-app-Site\",\"type\":\"RemixSite\",\"data\":{\"mode\":\"deployed\",\"path\":\".\",\"url\":\"https://",
       {
        "Fn::GetAtt": [
         "siteDistribution706F5265",
@@ -1411,7 +1473,7 @@
         "Arn"
        ]
       },
-      "\",\"secrets\":[\"DATABASE_URL\",\"SESSION_SECRET\"]}}]}"
+      "\",\"secrets\":[\"DATABASE_HOST\",\"DATABASE_USERNAME\",\"DATABASE_PASSWORD\",\"SESSION_SECRET\"]}}]}"
      ]
     ]
    }

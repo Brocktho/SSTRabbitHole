@@ -1,0 +1,2 @@
+ALTER TABLE `Note` MODIFY COLUMN `id` varchar(191) NOT NULL DEFAULT '4af60486-882c-4324-9239-004b110d5bfa';--> statement-breakpoint
+ALTER TABLE `User` MODIFY COLUMN `id` varchar(191) NOT NULL DEFAULT '3dcc82fb-50f7-4cfe-a130-57c3797d4465';

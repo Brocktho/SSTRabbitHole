@@ -1,7 +1,6 @@
 import { useMatches } from "@remix-run/react";
 import { useMemo } from "react";
-
-import type { User } from "~/models/user.server";
+import { User } from "./db/schema";
 
 const DEFAULT_REDIRECT = "/";
 
@@ -69,3 +68,21 @@ export function useUser(): User {
 export function validateEmail(email: unknown): email is string {
   return typeof email === "string" && email.length > 3 && email.includes("@");
 }
+
+export const CollectFormIntoObj = (data: FormData) => {
+  const obj: Record<string, string | Array<string>> = {};
+  for (const [key, value] of data) {
+    if (typeof value === "string") {
+      const prev = obj[key];
+      if (Array.isArray(prev)) {
+        prev.push(value);
+        obj[key] = prev;
+      } else if (prev) {
+        obj[key] = [prev, value];
+      } else {
+        obj[key] = value;
+      }
+    }
+  }
+  return obj;
+};

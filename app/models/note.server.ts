@@ -1,52 +1,43 @@
-import type { User, Note } from "@prisma/client";
+import { and, eq } from "drizzle-orm";
+import { drizzle } from "~/db.server";
+import { note } from "~/db/schema";
 
-import { prisma } from "~/db.server";
-
-export function getNote({
-  id,
-  userId,
-}: Pick<Note, "id"> & {
-  userId: User["id"];
-}) {
-  return prisma.note.findFirst({
-    select: { id: true, body: true, title: true },
-    where: { id, userId },
+export function getNote({ id, userId }: { id: string; userId: string }) {
+  return drizzle.query.note.findFirst({
+    where: and(eq(note.id, id), eq(note.userId, userId)),
   });
 }
 
-export function getNoteListItems({ userId }: { userId: User["id"] }) {
-  return prisma.note.findMany({
-    where: { userId },
-    select: { id: true, title: true },
-    orderBy: { updatedAt: "desc" },
+export function getNoteListItems({ userId }: { userId: string }) {
+  return drizzle.query.note.findMany({
+    where: eq(note.userId, userId),
   });
 }
-
 export function createNote({
   body,
   title,
   userId,
-}: Pick<Note, "body" | "title"> & {
-  userId: User["id"];
+}: {
+  body: string;
+  title: string;
+  userId: string;
 }) {
-  return prisma.note.create({
-    data: {
-      title,
+  const id = crypto.randomUUID();
+  return drizzle
+    .insert(note)
+    .values({
+      id,
+      userId,
       body,
-      user: {
-        connect: {
-          id: userId,
-        },
-      },
-    },
-  });
+      title,
+    })
+    .then(() => {
+      return id;
+    });
 }
 
-export function deleteNote({
-  id,
-  userId,
-}: Pick<Note, "id"> & { userId: User["id"] }) {
-  return prisma.note.deleteMany({
-    where: { id, userId },
-  });
+export function deleteNote({ id, userId }: { id: string; userId: string }) {
+  return drizzle
+    .delete(note)
+    .where(and(eq(note.userId, userId), eq(note.id, id)));
 }

@@ -4,7 +4,7 @@ import { Config, RemixSite } from "sst/constructs";
 export default {
   config(_input) {
     return {
-      name: "my-remix-app",
+      name: "remix-lambda",
       region: "us-east-1",
     };
   },

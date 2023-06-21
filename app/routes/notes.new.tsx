@@ -1,35 +1,54 @@
 import type { ActionArgs } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
 import { Form, useActionData } from "@remix-run/react";
+import vine from "~/vine";
 import { useEffect, useRef } from "react";
+import { CreateNoteModel } from "~/db/schema";
 
 import { createNote } from "~/models/note.server";
 import { requireUserId } from "~/session.server";
+import { CollectFormIntoObj } from "~/utils";
 
 export const action = async ({ request }: ActionArgs) => {
   const userId = await requireUserId(request);
+  const formData = await request
+    .formData()
+    .then((data) => CollectFormIntoObj(data));
+  let body_err: string | null = null;
+  let title_err: string | null = null;
+  const note_id = await vine
+    .then(async (v) => {
+      console.log(formData);
+      v.validate({ schema: await CreateNoteModel, data: formData })
+        .then((result) => {
+          return createNote({
+            body: result.body,
+            title: result.title,
+            userId,
+          });
+        })
+        .catch((e) => {
+          console.error(e);
+          return null;
+        });
+    })
+    .catch((e) => {
+      console.error(e);
+      return null;
+    });
 
-  const formData = await request.formData();
-  const title = formData.get("title");
-  const body = formData.get("body");
-
-  if (typeof title !== "string" || title.length === 0) {
+  if (note_id === null) {
     return json(
-      { errors: { body: null, title: "Title is required" } },
+      {
+        errors: {
+          body: body_err,
+          title: title_err,
+        },
+      },
       { status: 400 }
     );
   }
-
-  if (typeof body !== "string" || body.length === 0) {
-    return json(
-      { errors: { body: "Body is required", title: null } },
-      { status: 400 }
-    );
-  }
-
-  const note = await createNote({ body, title, userId });
-
-  return redirect(`/notes/${note.id}`);
+  return redirect(`/notes/${note_id}`);
 };
 
 export default function NewNotePage() {
