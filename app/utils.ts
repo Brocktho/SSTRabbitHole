@@ -1,6 +1,7 @@
 import { useMatches } from "@remix-run/react";
 import { useMemo } from "react";
 import { User } from "./db/schema";
+import { ZodObject, ZodRawShape } from "zod";
 
 const DEFAULT_REDIRECT = "/";
 
@@ -85,4 +86,12 @@ export const CollectFormIntoObj = (data: FormData) => {
     }
   }
   return obj;
+};
+
+export const RequireFormModel = <T extends ZodRawShape>(
+  data: FormData,
+  model: ZodObject<T>
+) => {
+  const obj = CollectFormIntoObj(data);
+  return model.parse(obj);
 };

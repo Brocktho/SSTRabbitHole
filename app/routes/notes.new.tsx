@@ -1,41 +1,25 @@
 import type { ActionArgs } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
 import { Form, useActionData } from "@remix-run/react";
-import vine from "~/vine";
 import { useEffect, useRef } from "react";
 import { CreateNoteModel } from "~/db/schema";
 
 import { createNote } from "~/models/note.server";
 import { requireUserId } from "~/session.server";
-import { CollectFormIntoObj } from "~/utils";
+import { RequireFormModel } from "~/utils";
 
 export const action = async ({ request }: ActionArgs) => {
   const userId = await requireUserId(request);
-  const formData = await request
+  const note_data = await request
     .formData()
-    .then((data) => CollectFormIntoObj(data));
+    .then((data) => RequireFormModel(data, CreateNoteModel));
+  const note_id = await createNote({
+    title: note_data.title,
+    body: note_data.body,
+    userId,
+  });
   let body_err: string | null = null;
   let title_err: string | null = null;
-  const note_id = await vine
-    .then(async (v) => {
-      console.log(formData);
-      v.validate({ schema: await CreateNoteModel, data: formData })
-        .then((result) => {
-          return createNote({
-            body: result.body,
-            title: result.title,
-            userId,
-          });
-        })
-        .catch((e) => {
-          console.error(e);
-          return null;
-        });
-    })
-    .catch((e) => {
-      console.error(e);
-      return null;
-    });
 
   if (note_id === null) {
     return json(

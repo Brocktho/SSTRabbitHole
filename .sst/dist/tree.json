@@ -4,21 +4,21 @@
     "id": "App",
     "path": "",
     "children": {
-      "brocktho-staging-my-remix-app-Site": {
-        "id": "brocktho-staging-my-remix-app-Site",
-        "path": "brocktho-staging-my-remix-app-Site",
+      "prod-remix-lambda-Site": {
+        "id": "prod-remix-lambda-Site",
+        "path": "prod-remix-lambda-Site",
         "children": {
           "CustomResourceHandler": {
             "id": "CustomResourceHandler",
-            "path": "brocktho-staging-my-remix-app-Site/CustomResourceHandler",
+            "path": "prod-remix-lambda-Site/CustomResourceHandler",
             "children": {
               "ServiceRole": {
                 "id": "ServiceRole",
-                "path": "brocktho-staging-my-remix-app-Site/CustomResourceHandler/ServiceRole",
+                "path": "prod-remix-lambda-Site/CustomResourceHandler/ServiceRole",
                 "children": {
                   "ImportServiceRole": {
                     "id": "ImportServiceRole",
-                    "path": "brocktho-staging-my-remix-app-Site/CustomResourceHandler/ServiceRole/ImportServiceRole",
+                    "path": "prod-remix-lambda-Site/CustomResourceHandler/ServiceRole/ImportServiceRole",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.84.0"
@@ -26,7 +26,7 @@
                   },
                   "Resource": {
                     "id": "Resource",
-                    "path": "brocktho-staging-my-remix-app-Site/CustomResourceHandler/ServiceRole/Resource",
+                    "path": "prod-remix-lambda-Site/CustomResourceHandler/ServiceRole/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                       "aws:cdk:cloudformation:props": {
@@ -59,11 +59,11 @@
                         "tags": [
                           {
                             "key": "sst:app",
-                            "value": "my-remix-app"
+                            "value": "remix-lambda"
                           },
                           {
                             "key": "sst:stage",
-                            "value": "brocktho-staging"
+                            "value": "prod"
                           }
                         ]
                       }
@@ -81,11 +81,11 @@
               },
               "Code": {
                 "id": "Code",
-                "path": "brocktho-staging-my-remix-app-Site/CustomResourceHandler/Code",
+                "path": "prod-remix-lambda-Site/CustomResourceHandler/Code",
                 "children": {
                   "Stage": {
                     "id": "Stage",
-                    "path": "brocktho-staging-my-remix-app-Site/CustomResourceHandler/Code/Stage",
+                    "path": "prod-remix-lambda-Site/CustomResourceHandler/Code/Stage",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.AssetStaging",
                       "version": "2.84.0"
@@ -93,7 +93,7 @@
                   },
                   "AssetBucket": {
                     "id": "AssetBucket",
-                    "path": "brocktho-staging-my-remix-app-Site/CustomResourceHandler/Code/AssetBucket",
+                    "path": "prod-remix-lambda-Site/CustomResourceHandler/Code/AssetBucket",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_s3.BucketBase",
                       "version": "2.84.0"
@@ -107,13 +107,13 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "brocktho-staging-my-remix-app-Site/CustomResourceHandler/Resource",
+                "path": "prod-remix-lambda-Site/CustomResourceHandler/Resource",
                 "attributes": {
                   "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                   "aws:cdk:cloudformation:props": {
                     "code": {
                       "s3Bucket": "cdk-hnb659fds-assets-140752286971-us-east-1",
-                      "s3Key": "bd396d553feb15e9abcce81a72956eb7477e0db65fa93d03a33d807277aad30a.zip"
+                      "s3Key": "b6ca06b306523d7cd4c7e9b99a881b86958eec7ac70410dade25fe70da88d0cd.zip"
                     },
                     "role": {
                       "Fn::GetAtt": [
@@ -127,11 +127,11 @@
                     "tags": [
                       {
                         "key": "sst:app",
-                        "value": "my-remix-app"
+                        "value": "remix-lambda"
                       },
                       {
                         "key": "sst:stage",
-                        "value": "brocktho-staging"
+                        "value": "prod"
                       }
                     ],
                     "timeout": 900
@@ -150,7 +150,7 @@
           },
           "DATABASE_HOST": {
             "id": "DATABASE_HOST",
-            "path": "brocktho-staging-my-remix-app-Site/DATABASE_HOST",
+            "path": "prod-remix-lambda-Site/DATABASE_HOST",
             "constructInfo": {
               "fqn": "constructs.Construct",
               "version": "10.1.156"
@@ -158,7 +158,7 @@
           },
           "DATABASE_USERNAME": {
             "id": "DATABASE_USERNAME",
-            "path": "brocktho-staging-my-remix-app-Site/DATABASE_USERNAME",
+            "path": "prod-remix-lambda-Site/DATABASE_USERNAME",
             "constructInfo": {
               "fqn": "constructs.Construct",
               "version": "10.1.156"
@@ -166,7 +166,7 @@
           },
           "DATABASE_PASSWORD": {
             "id": "DATABASE_PASSWORD",
-            "path": "brocktho-staging-my-remix-app-Site/DATABASE_PASSWORD",
+            "path": "prod-remix-lambda-Site/DATABASE_PASSWORD",
             "constructInfo": {
               "fqn": "constructs.Construct",
               "version": "10.1.156"
@@ -174,7 +174,7 @@
           },
           "SESSION_SECRET": {
             "id": "SESSION_SECRET",
-            "path": "brocktho-staging-my-remix-app-Site/SESSION_SECRET",
+            "path": "prod-remix-lambda-Site/SESSION_SECRET",
             "constructInfo": {
               "fqn": "constructs.Construct",
               "version": "10.1.156"
@@ -182,245 +182,19 @@
           },
           "site": {
             "id": "site",
-            "path": "brocktho-staging-my-remix-app-Site/site",
+            "path": "prod-remix-lambda-Site/site",
             "children": {
-              "ServerFunctionRole": {
-                "id": "ServerFunctionRole",
-                "path": "brocktho-staging-my-remix-app-Site/site/ServerFunctionRole",
+              "AwsCliLayer": {
+                "id": "AwsCliLayer",
+                "path": "prod-remix-lambda-Site/site/AwsCliLayer",
                 "children": {
-                  "ImportServerFunctionRole": {
-                    "id": "ImportServerFunctionRole",
-                    "path": "brocktho-staging-my-remix-app-Site/site/ServerFunctionRole/ImportServerFunctionRole",
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.Resource",
-                      "version": "2.84.0"
-                    }
-                  },
-                  "Resource": {
-                    "id": "Resource",
-                    "path": "brocktho-staging-my-remix-app-Site/site/ServerFunctionRole/Resource",
-                    "attributes": {
-                      "aws:cdk:cloudformation:type": "AWS::IAM::Role",
-                      "aws:cdk:cloudformation:props": {
-                        "assumeRolePolicyDocument": {
-                          "Statement": [
-                            {
-                              "Action": "sts:AssumeRole",
-                              "Effect": "Allow",
-                              "Principal": {
-                                "AWS": {
-                                  "Fn::Join": [
-                                    "",
-                                    [
-                                      "arn:",
-                                      {
-                                        "Ref": "AWS::Partition"
-                                      },
-                                      ":iam::140752286971:root"
-                                    ]
-                                  ]
-                                }
-                              }
-                            },
-                            {
-                              "Action": "sts:AssumeRole",
-                              "Effect": "Allow",
-                              "Principal": {
-                                "Service": "lambda.amazonaws.com"
-                              }
-                            }
-                          ],
-                          "Version": "2012-10-17"
-                        },
-                        "maxSessionDuration": 43200,
-                        "tags": [
-                          {
-                            "key": "sst:app",
-                            "value": "my-remix-app"
-                          },
-                          {
-                            "key": "sst:stage",
-                            "value": "brocktho-staging"
-                          }
-                        ]
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_iam.CfnRole",
-                      "version": "2.84.0"
-                    }
-                  },
-                  "DefaultPolicy": {
-                    "id": "DefaultPolicy",
-                    "path": "brocktho-staging-my-remix-app-Site/site/ServerFunctionRole/DefaultPolicy",
-                    "children": {
-                      "Resource": {
-                        "id": "Resource",
-                        "path": "brocktho-staging-my-remix-app-Site/site/ServerFunctionRole/DefaultPolicy/Resource",
-                        "attributes": {
-                          "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
-                          "aws:cdk:cloudformation:props": {
-                            "policyDocument": {
-                              "Statement": [
-                                {
-                                  "Action": "ssm:GetParameters",
-                                  "Effect": "Allow",
-                                  "Resource": [
-                                    {
-                                      "Fn::Join": [
-                                        "",
-                                        [
-                                          "arn:",
-                                          {
-                                            "Ref": "AWS::Partition"
-                                          },
-                                          ":ssm:us-east-1:140752286971:parameter/sst/my-remix-app/brocktho-staging/Secret/DATABASE_HOST/value"
-                                        ]
-                                      ]
-                                    },
-                                    {
-                                      "Fn::Join": [
-                                        "",
-                                        [
-                                          "arn:",
-                                          {
-                                            "Ref": "AWS::Partition"
-                                          },
-                                          ":ssm:us-east-1:140752286971:parameter/sst/my-remix-app/.fallback/Secret/DATABASE_HOST/value"
-                                        ]
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "Action": "ssm:GetParameters",
-                                  "Effect": "Allow",
-                                  "Resource": [
-                                    {
-                                      "Fn::Join": [
-                                        "",
-                                        [
-                                          "arn:",
-                                          {
-                                            "Ref": "AWS::Partition"
-                                          },
-                                          ":ssm:us-east-1:140752286971:parameter/sst/my-remix-app/brocktho-staging/Secret/DATABASE_USERNAME/value"
-                                        ]
-                                      ]
-                                    },
-                                    {
-                                      "Fn::Join": [
-                                        "",
-                                        [
-                                          "arn:",
-                                          {
-                                            "Ref": "AWS::Partition"
-                                          },
-                                          ":ssm:us-east-1:140752286971:parameter/sst/my-remix-app/.fallback/Secret/DATABASE_USERNAME/value"
-                                        ]
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "Action": "ssm:GetParameters",
-                                  "Effect": "Allow",
-                                  "Resource": [
-                                    {
-                                      "Fn::Join": [
-                                        "",
-                                        [
-                                          "arn:",
-                                          {
-                                            "Ref": "AWS::Partition"
-                                          },
-                                          ":ssm:us-east-1:140752286971:parameter/sst/my-remix-app/brocktho-staging/Secret/DATABASE_PASSWORD/value"
-                                        ]
-                                      ]
-                                    },
-                                    {
-                                      "Fn::Join": [
-                                        "",
-                                        [
-                                          "arn:",
-                                          {
-                                            "Ref": "AWS::Partition"
-                                          },
-                                          ":ssm:us-east-1:140752286971:parameter/sst/my-remix-app/.fallback/Secret/DATABASE_PASSWORD/value"
-                                        ]
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "Action": "ssm:GetParameters",
-                                  "Effect": "Allow",
-                                  "Resource": [
-                                    {
-                                      "Fn::Join": [
-                                        "",
-                                        [
-                                          "arn:",
-                                          {
-                                            "Ref": "AWS::Partition"
-                                          },
-                                          ":ssm:us-east-1:140752286971:parameter/sst/my-remix-app/brocktho-staging/Secret/SESSION_SECRET/value"
-                                        ]
-                                      ]
-                                    },
-                                    {
-                                      "Fn::Join": [
-                                        "",
-                                        [
-                                          "arn:",
-                                          {
-                                            "Ref": "AWS::Partition"
-                                          },
-                                          ":ssm:us-east-1:140752286971:parameter/sst/my-remix-app/.fallback/Secret/SESSION_SECRET/value"
-                                        ]
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "Version": "2012-10-17"
-                            },
-                            "policyName": "siteServerFunctionRoleDefaultPolicy213DB8A5",
-                            "roles": [
-                              {
-                                "Ref": "siteServerFunctionRole1F8F4FAC"
-                              }
-                            ]
-                          }
-                        },
-                        "constructInfo": {
-                          "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
-                          "version": "2.84.0"
-                        }
-                      }
-                    },
-                    "constructInfo": {
-                      "fqn": "aws-cdk-lib.aws_iam.Policy",
-                      "version": "2.84.0"
-                    }
-                  }
-                },
-                "constructInfo": {
-                  "fqn": "aws-cdk-lib.aws_iam.Role",
-                  "version": "2.84.0"
-                }
-              },
-              "ServerFunction": {
-                "id": "ServerFunction",
-                "path": "brocktho-staging-my-remix-app-Site/site/ServerFunction",
-                "children": {
-                  "FunctionAsset": {
-                    "id": "FunctionAsset",
-                    "path": "brocktho-staging-my-remix-app-Site/site/ServerFunction/FunctionAsset",
+                  "Code": {
+                    "id": "Code",
+                    "path": "prod-remix-lambda-Site/site/AwsCliLayer/Code",
                     "children": {
                       "Stage": {
                         "id": "Stage",
-                        "path": "brocktho-staging-my-remix-app-Site/site/ServerFunction/FunctionAsset/Stage",
+                        "path": "prod-remix-lambda-Site/site/AwsCliLayer/Code/Stage",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.AssetStaging",
                           "version": "2.84.0"
@@ -428,7 +202,7 @@
                       },
                       "AssetBucket": {
                         "id": "AssetBucket",
-                        "path": "brocktho-staging-my-remix-app-Site/site/ServerFunction/FunctionAsset/AssetBucket",
+                        "path": "prod-remix-lambda-Site/site/AwsCliLayer/Code/AssetBucket",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.aws_s3.BucketBase",
                           "version": "2.84.0"
@@ -440,13 +214,197 @@
                       "version": "2.84.0"
                     }
                   },
-                  "AssetReplacerPolicy": {
-                    "id": "AssetReplacerPolicy",
-                    "path": "brocktho-staging-my-remix-app-Site/site/ServerFunction/AssetReplacerPolicy",
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "prod-remix-lambda-Site/site/AwsCliLayer/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::LayerVersion",
+                      "aws:cdk:cloudformation:props": {
+                        "content": {
+                          "s3Bucket": "cdk-hnb659fds-assets-140752286971-us-east-1",
+                          "s3Key": "292870ae2617f1c4d62ff18422e009afd534a342c17877fd1b931fb8d8a62abc.zip"
+                        },
+                        "description": "/opt/awscli/aws"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnLayerVersion",
+                      "version": "2.84.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.lambda_layer_awscli.AwsCliLayer",
+                  "version": "2.84.0"
+                }
+              },
+              "S3Bucket": {
+                "id": "S3Bucket",
+                "path": "prod-remix-lambda-Site/site/S3Bucket",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "prod-remix-lambda-Site/site/S3Bucket/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::S3::Bucket",
+                      "aws:cdk:cloudformation:props": {
+                        "publicAccessBlockConfiguration": {
+                          "blockPublicAcls": true,
+                          "blockPublicPolicy": true,
+                          "ignorePublicAcls": true,
+                          "restrictPublicBuckets": true
+                        },
+                        "tags": [
+                          {
+                            "key": "aws-cdk:auto-delete-objects",
+                            "value": "true"
+                          },
+                          {
+                            "key": "sst:app",
+                            "value": "remix-lambda"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "prod"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.CfnBucket",
+                      "version": "2.84.0"
+                    }
+                  },
+                  "Policy": {
+                    "id": "Policy",
+                    "path": "prod-remix-lambda-Site/site/S3Bucket/Policy",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "brocktho-staging-my-remix-app-Site/site/ServerFunction/AssetReplacerPolicy/Resource",
+                        "path": "prod-remix-lambda-Site/site/S3Bucket/Policy/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::S3::BucketPolicy",
+                          "aws:cdk:cloudformation:props": {
+                            "bucket": {
+                              "Ref": "siteS3Bucket2B2851F3"
+                            },
+                            "policyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": [
+                                    "s3:GetBucket*",
+                                    "s3:List*",
+                                    "s3:DeleteObject*"
+                                  ],
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "AWS": {
+                                      "Fn::GetAtt": [
+                                        "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092",
+                                        "Arn"
+                                      ]
+                                    }
+                                  },
+                                  "Resource": [
+                                    {
+                                      "Fn::GetAtt": [
+                                        "siteS3Bucket2B2851F3",
+                                        "Arn"
+                                      ]
+                                    },
+                                    {
+                                      "Fn::Join": [
+                                        "",
+                                        [
+                                          {
+                                            "Fn::GetAtt": [
+                                              "siteS3Bucket2B2851F3",
+                                              "Arn"
+                                            ]
+                                          },
+                                          "/*"
+                                        ]
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Action": "s3:GetObject",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "CanonicalUser": {
+                                      "Fn::GetAtt": [
+                                        "siteDistributionOrigin2S3Origin49B86EE9",
+                                        "S3CanonicalUserId"
+                                      ]
+                                    }
+                                  },
+                                  "Resource": {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        {
+                                          "Fn::GetAtt": [
+                                            "siteS3Bucket2B2851F3",
+                                            "Arn"
+                                          ]
+                                        },
+                                        "/*"
+                                      ]
+                                    ]
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3.CfnBucketPolicy",
+                          "version": "2.84.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketPolicy",
+                      "version": "2.84.0"
+                    }
+                  },
+                  "AutoDeleteObjectsCustomResource": {
+                    "id": "AutoDeleteObjectsCustomResource",
+                    "path": "prod-remix-lambda-Site/site/S3Bucket/AutoDeleteObjectsCustomResource",
+                    "children": {
+                      "Default": {
+                        "id": "Default",
+                        "path": "prod-remix-lambda-Site/site/S3Bucket/AutoDeleteObjectsCustomResource/Default",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.CfnResource",
+                          "version": "2.84.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CustomResource",
+                      "version": "2.84.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3.Bucket",
+                  "version": "2.84.0"
+                }
+              },
+              "ServerFunction": {
+                "id": "ServerFunction",
+                "path": "prod-remix-lambda-Site/site/ServerFunction",
+                "children": {
+                  "AssetReplacerPolicy": {
+                    "id": "AssetReplacerPolicy",
+                    "path": "prod-remix-lambda-Site/site/ServerFunction/AssetReplacerPolicy",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "prod-remix-lambda-Site/site/ServerFunction/AssetReplacerPolicy/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                           "aws:cdk:cloudformation:props": {
@@ -466,7 +424,7 @@
                                         {
                                           "Ref": "AWS::Partition"
                                         },
-                                        ":s3:::cdk-hnb659fds-assets-140752286971-us-east-1/*"
+                                        ":s3:::placeholder/*"
                                       ]
                                     ]
                                   }
@@ -495,11 +453,11 @@
                   },
                   "AssetReplacer": {
                     "id": "AssetReplacer",
-                    "path": "brocktho-staging-my-remix-app-Site/site/ServerFunction/AssetReplacer",
+                    "path": "prod-remix-lambda-Site/site/ServerFunction/AssetReplacer",
                     "children": {
                       "Default": {
                         "id": "Default",
-                        "path": "brocktho-staging-my-remix-app-Site/site/ServerFunction/AssetReplacer/Default",
+                        "path": "prod-remix-lambda-Site/site/ServerFunction/AssetReplacer/Default",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.CfnResource",
                           "version": "2.84.0"
@@ -513,7 +471,7 @@
                   },
                   "IServerFunctionBucket": {
                     "id": "IServerFunctionBucket",
-                    "path": "brocktho-staging-my-remix-app-Site/site/ServerFunction/IServerFunctionBucket",
+                    "path": "prod-remix-lambda-Site/site/ServerFunction/IServerFunctionBucket",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_s3.BucketBase",
                       "version": "2.84.0"
@@ -521,50 +479,308 @@
                   },
                   "ServerFunction": {
                     "id": "ServerFunction",
-                    "path": "brocktho-staging-my-remix-app-Site/site/ServerFunction/ServerFunction",
+                    "path": "prod-remix-lambda-Site/site/ServerFunction/ServerFunction",
                     "children": {
+                      "ServiceRole": {
+                        "id": "ServiceRole",
+                        "path": "prod-remix-lambda-Site/site/ServerFunction/ServerFunction/ServiceRole",
+                        "children": {
+                          "ImportServiceRole": {
+                            "id": "ImportServiceRole",
+                            "path": "prod-remix-lambda-Site/site/ServerFunction/ServerFunction/ServiceRole/ImportServiceRole",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.Resource",
+                              "version": "2.84.0"
+                            }
+                          },
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "prod-remix-lambda-Site/site/ServerFunction/ServerFunction/ServiceRole/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                              "aws:cdk:cloudformation:props": {
+                                "assumeRolePolicyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": "sts:AssumeRole",
+                                      "Effect": "Allow",
+                                      "Principal": {
+                                        "Service": "lambda.amazonaws.com"
+                                      }
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "managedPolicyArns": [
+                                  {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                      ]
+                                    ]
+                                  }
+                                ],
+                                "tags": [
+                                  {
+                                    "key": "sst:app",
+                                    "value": "remix-lambda"
+                                  },
+                                  {
+                                    "key": "sst:stage",
+                                    "value": "prod"
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                              "version": "2.84.0"
+                            }
+                          },
+                          "DefaultPolicy": {
+                            "id": "DefaultPolicy",
+                            "path": "prod-remix-lambda-Site/site/ServerFunction/ServerFunction/ServiceRole/DefaultPolicy",
+                            "children": {
+                              "Resource": {
+                                "id": "Resource",
+                                "path": "prod-remix-lambda-Site/site/ServerFunction/ServerFunction/ServiceRole/DefaultPolicy/Resource",
+                                "attributes": {
+                                  "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                                  "aws:cdk:cloudformation:props": {
+                                    "policyDocument": {
+                                      "Statement": [
+                                        {
+                                          "Action": "ssm:GetParameters",
+                                          "Effect": "Allow",
+                                          "Resource": [
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  "arn:",
+                                                  {
+                                                    "Ref": "AWS::Partition"
+                                                  },
+                                                  ":ssm:us-east-1:140752286971:parameter/sst/remix-lambda/prod/Secret/DATABASE_HOST/value"
+                                                ]
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  "arn:",
+                                                  {
+                                                    "Ref": "AWS::Partition"
+                                                  },
+                                                  ":ssm:us-east-1:140752286971:parameter/sst/remix-lambda/.fallback/Secret/DATABASE_HOST/value"
+                                                ]
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "Action": "ssm:GetParameters",
+                                          "Effect": "Allow",
+                                          "Resource": [
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  "arn:",
+                                                  {
+                                                    "Ref": "AWS::Partition"
+                                                  },
+                                                  ":ssm:us-east-1:140752286971:parameter/sst/remix-lambda/prod/Secret/DATABASE_USERNAME/value"
+                                                ]
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  "arn:",
+                                                  {
+                                                    "Ref": "AWS::Partition"
+                                                  },
+                                                  ":ssm:us-east-1:140752286971:parameter/sst/remix-lambda/.fallback/Secret/DATABASE_USERNAME/value"
+                                                ]
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "Action": "ssm:GetParameters",
+                                          "Effect": "Allow",
+                                          "Resource": [
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  "arn:",
+                                                  {
+                                                    "Ref": "AWS::Partition"
+                                                  },
+                                                  ":ssm:us-east-1:140752286971:parameter/sst/remix-lambda/prod/Secret/DATABASE_PASSWORD/value"
+                                                ]
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  "arn:",
+                                                  {
+                                                    "Ref": "AWS::Partition"
+                                                  },
+                                                  ":ssm:us-east-1:140752286971:parameter/sst/remix-lambda/.fallback/Secret/DATABASE_PASSWORD/value"
+                                                ]
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "Action": "ssm:GetParameters",
+                                          "Effect": "Allow",
+                                          "Resource": [
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  "arn:",
+                                                  {
+                                                    "Ref": "AWS::Partition"
+                                                  },
+                                                  ":ssm:us-east-1:140752286971:parameter/sst/remix-lambda/prod/Secret/SESSION_SECRET/value"
+                                                ]
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  "arn:",
+                                                  {
+                                                    "Ref": "AWS::Partition"
+                                                  },
+                                                  ":ssm:us-east-1:140752286971:parameter/sst/remix-lambda/.fallback/Secret/SESSION_SECRET/value"
+                                                ]
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "Action": [
+                                            "s3:GetObject*",
+                                            "s3:GetBucket*",
+                                            "s3:List*",
+                                            "s3:DeleteObject*",
+                                            "s3:PutObject",
+                                            "s3:PutObjectLegalHold",
+                                            "s3:PutObjectRetention",
+                                            "s3:PutObjectTagging",
+                                            "s3:PutObjectVersionTagging",
+                                            "s3:Abort*"
+                                          ],
+                                          "Effect": "Allow",
+                                          "Resource": [
+                                            {
+                                              "Fn::GetAtt": [
+                                                "siteS3Bucket2B2851F3",
+                                                "Arn"
+                                              ]
+                                            },
+                                            {
+                                              "Fn::Join": [
+                                                "",
+                                                [
+                                                  {
+                                                    "Fn::GetAtt": [
+                                                      "siteS3Bucket2B2851F3",
+                                                      "Arn"
+                                                    ]
+                                                  },
+                                                  "/*"
+                                                ]
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "Version": "2012-10-17"
+                                    },
+                                    "policyName": "siteServerFunctionServiceRoleDefaultPolicy6EA49472",
+                                    "roles": [
+                                      {
+                                        "Ref": "siteServerFunctionServiceRole8328A688"
+                                      }
+                                    ]
+                                  }
+                                },
+                                "constructInfo": {
+                                  "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                                  "version": "2.84.0"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.Policy",
+                              "version": "2.84.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Role",
+                          "version": "2.84.0"
+                        }
+                      },
                       "Resource": {
                         "id": "Resource",
-                        "path": "brocktho-staging-my-remix-app-Site/site/ServerFunction/ServerFunction/Resource",
+                        "path": "prod-remix-lambda-Site/site/ServerFunction/ServerFunction/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                           "aws:cdk:cloudformation:props": {
                             "code": {
                               "s3Bucket": "cdk-hnb659fds-assets-140752286971-us-east-1",
-                              "s3Key": "9b84b669d3f3a7c60e8af02574c1d9b9baca32cc2dc9f5318fa9fa0c85456992.zip"
+                              "s3Key": "6611419f43443b70119c1c0fe45d06539c85c7c76ce3d1752ac78a942ab564fe.zip"
                             },
                             "role": {
                               "Fn::GetAtt": [
-                                "siteServerFunctionRole1F8F4FAC",
+                                "siteServerFunctionServiceRole8328A688",
                                 "Arn"
                               ]
                             },
                             "architectures": [
                               "arm64"
                             ],
-                            "description": "Server handler placeholder",
+                            "description": "Server handler for Remix",
                             "environment": {
                               "variables": {
-                                "SST_APP": "my-remix-app",
-                                "SST_STAGE": "brocktho-staging",
-                                "SST_SSM_PREFIX": "/sst/my-remix-app/brocktho-staging/",
+                                "SST_APP": "remix-lambda",
+                                "SST_STAGE": "prod",
+                                "SST_SSM_PREFIX": "/sst/remix-lambda/prod/",
                                 "SST_Secret_value_DATABASE_HOST": "__FETCH_FROM_SSM__",
                                 "SST_Secret_value_DATABASE_USERNAME": "__FETCH_FROM_SSM__",
                                 "SST_Secret_value_DATABASE_PASSWORD": "__FETCH_FROM_SSM__",
                                 "SST_Secret_value_SESSION_SECRET": "__FETCH_FROM_SSM__"
                               }
                             },
-                            "handler": "index.handler",
+                            "handler": "build/server.handler",
                             "memorySize": 1024,
                             "runtime": "nodejs18.x",
                             "tags": [
                               {
                                 "key": "sst:app",
-                                "value": "my-remix-app"
+                                "value": "remix-lambda"
                               },
                               {
                                 "key": "sst:stage",
-                                "value": "brocktho-staging"
+                                "value": "prod"
                               }
                             ],
                             "timeout": 10
@@ -577,11 +793,11 @@
                       },
                       "LogRetention": {
                         "id": "LogRetention",
-                        "path": "brocktho-staging-my-remix-app-Site/site/ServerFunction/ServerFunction/LogRetention",
+                        "path": "prod-remix-lambda-Site/site/ServerFunction/ServerFunction/LogRetention",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "brocktho-staging-my-remix-app-Site/site/ServerFunction/ServerFunction/LogRetention/Resource",
+                            "path": "prod-remix-lambda-Site/site/ServerFunction/ServerFunction/LogRetention/Resource",
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.CfnResource",
                               "version": "2.84.0"
@@ -595,9 +811,87 @@
                       },
                       "LogGroup": {
                         "id": "LogGroup",
-                        "path": "brocktho-staging-my-remix-app-Site/site/ServerFunction/ServerFunction/LogGroup",
+                        "path": "prod-remix-lambda-Site/site/ServerFunction/ServerFunction/LogGroup",
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.84.0"
+                        }
+                      },
+                      "FunctionUrl": {
+                        "id": "FunctionUrl",
+                        "path": "prod-remix-lambda-Site/site/ServerFunction/ServerFunction/FunctionUrl",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "prod-remix-lambda-Site/site/ServerFunction/ServerFunction/FunctionUrl/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::Lambda::Url",
+                              "aws:cdk:cloudformation:props": {
+                                "authType": "NONE",
+                                "targetFunctionArn": {
+                                  "Fn::GetAtt": [
+                                    "siteServerFunction6DFA6F1B",
+                                    "Arn"
+                                  ]
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_lambda.CfnUrl",
+                              "version": "2.84.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_lambda.FunctionUrl",
+                          "version": "2.84.0"
+                        }
+                      },
+                      "invoke-function-url": {
+                        "id": "invoke-function-url",
+                        "path": "prod-remix-lambda-Site/site/ServerFunction/ServerFunction/invoke-function-url",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                          "aws:cdk:cloudformation:props": {
+                            "action": "lambda:InvokeFunctionUrl",
+                            "functionName": {
+                              "Fn::GetAtt": [
+                                "siteServerFunction6DFA6F1B",
+                                "Arn"
+                              ]
+                            },
+                            "principal": "*",
+                            "functionUrlAuthType": "NONE"
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                          "version": "2.84.0"
+                        }
+                      },
+                      "Code": {
+                        "id": "Code",
+                        "path": "prod-remix-lambda-Site/site/ServerFunction/ServerFunction/Code",
+                        "children": {
+                          "Stage": {
+                            "id": "Stage",
+                            "path": "prod-remix-lambda-Site/site/ServerFunction/ServerFunction/Code/Stage",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.AssetStaging",
+                              "version": "2.84.0"
+                            }
+                          },
+                          "AssetBucket": {
+                            "id": "AssetBucket",
+                            "path": "prod-remix-lambda-Site/site/ServerFunction/ServerFunction/Code/AssetBucket",
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                              "version": "2.84.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
                           "version": "2.84.0"
                         }
                       }
@@ -613,22 +907,1001 @@
                   "version": "10.1.156"
                 }
               },
-              "Parameter_url": {
-                "id": "Parameter_url",
-                "path": "brocktho-staging-my-remix-app-Site/site/Parameter_url",
+              "Asset0": {
+                "id": "Asset0",
+                "path": "prod-remix-lambda-Site/site/Asset0",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "prod-remix-lambda-Site/site/Asset0/Stage",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.AssetStaging",
+                      "version": "2.84.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "prod-remix-lambda-Site/site/Asset0/AssetBucket",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                      "version": "2.84.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                  "version": "2.84.0"
+                }
+              },
+              "S3Uploader": {
+                "id": "S3Uploader",
+                "path": "prod-remix-lambda-Site/site/S3Uploader",
+                "children": {
+                  "ServiceRole": {
+                    "id": "ServiceRole",
+                    "path": "prod-remix-lambda-Site/site/S3Uploader/ServiceRole",
+                    "children": {
+                      "ImportServiceRole": {
+                        "id": "ImportServiceRole",
+                        "path": "prod-remix-lambda-Site/site/S3Uploader/ServiceRole/ImportServiceRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.84.0"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "prod-remix-lambda-Site/site/S3Uploader/ServiceRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "lambda.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "managedPolicyArns": [
+                              {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                  ]
+                                ]
+                              }
+                            ],
+                            "tags": [
+                              {
+                                "key": "sst:app",
+                                "value": "remix-lambda"
+                              },
+                              {
+                                "key": "sst:stage",
+                                "value": "prod"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.84.0"
+                        }
+                      },
+                      "DefaultPolicy": {
+                        "id": "DefaultPolicy",
+                        "path": "prod-remix-lambda-Site/site/S3Uploader/ServiceRole/DefaultPolicy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "prod-remix-lambda-Site/site/S3Uploader/ServiceRole/DefaultPolicy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": [
+                                        "s3:GetObject*",
+                                        "s3:GetBucket*",
+                                        "s3:List*",
+                                        "s3:DeleteObject*",
+                                        "s3:PutObject",
+                                        "s3:PutObjectLegalHold",
+                                        "s3:PutObjectRetention",
+                                        "s3:PutObjectTagging",
+                                        "s3:PutObjectVersionTagging",
+                                        "s3:Abort*"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Resource": [
+                                        {
+                                          "Fn::GetAtt": [
+                                            "siteS3Bucket2B2851F3",
+                                            "Arn"
+                                          ]
+                                        },
+                                        {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              {
+                                                "Fn::GetAtt": [
+                                                  "siteS3Bucket2B2851F3",
+                                                  "Arn"
+                                                ]
+                                              },
+                                              "/*"
+                                            ]
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "Action": [
+                                        "s3:GetObject*",
+                                        "s3:GetBucket*",
+                                        "s3:List*"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Resource": [
+                                        {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":s3:::cdk-hnb659fds-assets-140752286971-us-east-1"
+                                            ]
+                                          ]
+                                        },
+                                        {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              "arn:",
+                                              {
+                                                "Ref": "AWS::Partition"
+                                              },
+                                              ":s3:::cdk-hnb659fds-assets-140752286971-us-east-1/*"
+                                            ]
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "policyName": "siteS3UploaderServiceRoleDefaultPolicy8BA893D3",
+                                "roles": [
+                                  {
+                                    "Ref": "siteS3UploaderServiceRole973F5A0B"
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                              "version": "2.84.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Policy",
+                          "version": "2.84.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.84.0"
+                    }
+                  },
+                  "Code": {
+                    "id": "Code",
+                    "path": "prod-remix-lambda-Site/site/S3Uploader/Code",
+                    "children": {
+                      "Stage": {
+                        "id": "Stage",
+                        "path": "prod-remix-lambda-Site/site/S3Uploader/Code/Stage",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.AssetStaging",
+                          "version": "2.84.0"
+                        }
+                      },
+                      "AssetBucket": {
+                        "id": "AssetBucket",
+                        "path": "prod-remix-lambda-Site/site/S3Uploader/Code/AssetBucket",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                          "version": "2.84.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                      "version": "2.84.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "prod-remix-lambda-Site/site/S3Uploader/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                      "aws:cdk:cloudformation:props": {
+                        "code": {
+                          "s3Bucket": "cdk-hnb659fds-assets-140752286971-us-east-1",
+                          "s3Key": "5314dd0b83a9c16d227872e4b881e96d2361ae01b02d8bdc3b24c30fd31aa758.zip"
+                        },
+                        "role": {
+                          "Fn::GetAtt": [
+                            "siteS3UploaderServiceRole973F5A0B",
+                            "Arn"
+                          ]
+                        },
+                        "handler": "s3-upload.handler",
+                        "layers": [
+                          {
+                            "Ref": "siteAwsCliLayer359A0EF0"
+                          }
+                        ],
+                        "memorySize": 1024,
+                        "runtime": "python3.7",
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "remix-lambda"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "prod"
+                          }
+                        ],
+                        "timeout": 900
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                      "version": "2.84.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.Function",
+                  "version": "2.84.0"
+                }
+              },
+              "S3Handler": {
+                "id": "S3Handler",
+                "path": "prod-remix-lambda-Site/site/S3Handler",
+                "children": {
+                  "ServiceRole": {
+                    "id": "ServiceRole",
+                    "path": "prod-remix-lambda-Site/site/S3Handler/ServiceRole",
+                    "children": {
+                      "ImportServiceRole": {
+                        "id": "ImportServiceRole",
+                        "path": "prod-remix-lambda-Site/site/S3Handler/ServiceRole/ImportServiceRole",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.Resource",
+                          "version": "2.84.0"
+                        }
+                      },
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "prod-remix-lambda-Site/site/S3Handler/ServiceRole/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                          "aws:cdk:cloudformation:props": {
+                            "assumeRolePolicyDocument": {
+                              "Statement": [
+                                {
+                                  "Action": "sts:AssumeRole",
+                                  "Effect": "Allow",
+                                  "Principal": {
+                                    "Service": "lambda.amazonaws.com"
+                                  }
+                                }
+                              ],
+                              "Version": "2012-10-17"
+                            },
+                            "managedPolicyArns": [
+                              {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                                  ]
+                                ]
+                              }
+                            ],
+                            "tags": [
+                              {
+                                "key": "sst:app",
+                                "value": "remix-lambda"
+                              },
+                              {
+                                "key": "sst:stage",
+                                "value": "prod"
+                              }
+                            ]
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.CfnRole",
+                          "version": "2.84.0"
+                        }
+                      },
+                      "DefaultPolicy": {
+                        "id": "DefaultPolicy",
+                        "path": "prod-remix-lambda-Site/site/S3Handler/ServiceRole/DefaultPolicy",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "prod-remix-lambda-Site/site/S3Handler/ServiceRole/DefaultPolicy/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                              "aws:cdk:cloudformation:props": {
+                                "policyDocument": {
+                                  "Statement": [
+                                    {
+                                      "Action": [
+                                        "s3:GetObject*",
+                                        "s3:GetBucket*",
+                                        "s3:List*",
+                                        "s3:DeleteObject*",
+                                        "s3:PutObject",
+                                        "s3:PutObjectLegalHold",
+                                        "s3:PutObjectRetention",
+                                        "s3:PutObjectTagging",
+                                        "s3:PutObjectVersionTagging",
+                                        "s3:Abort*"
+                                      ],
+                                      "Effect": "Allow",
+                                      "Resource": [
+                                        {
+                                          "Fn::GetAtt": [
+                                            "siteS3Bucket2B2851F3",
+                                            "Arn"
+                                          ]
+                                        },
+                                        {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              {
+                                                "Fn::GetAtt": [
+                                                  "siteS3Bucket2B2851F3",
+                                                  "Arn"
+                                                ]
+                                              },
+                                              "/*"
+                                            ]
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "Action": "lambda:InvokeFunction",
+                                      "Effect": "Allow",
+                                      "Resource": [
+                                        {
+                                          "Fn::GetAtt": [
+                                            "siteS3Uploader2837C218",
+                                            "Arn"
+                                          ]
+                                        },
+                                        {
+                                          "Fn::Join": [
+                                            "",
+                                            [
+                                              {
+                                                "Fn::GetAtt": [
+                                                  "siteS3Uploader2837C218",
+                                                  "Arn"
+                                                ]
+                                              },
+                                              ":*"
+                                            ]
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  "Version": "2012-10-17"
+                                },
+                                "policyName": "siteS3HandlerServiceRoleDefaultPolicy1BD27252",
+                                "roles": [
+                                  {
+                                    "Ref": "siteS3HandlerServiceRole6D2CC8E3"
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                              "version": "2.84.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_iam.Policy",
+                          "version": "2.84.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.Role",
+                      "version": "2.84.0"
+                    }
+                  },
+                  "Code": {
+                    "id": "Code",
+                    "path": "prod-remix-lambda-Site/site/S3Handler/Code",
+                    "children": {
+                      "Stage": {
+                        "id": "Stage",
+                        "path": "prod-remix-lambda-Site/site/S3Handler/Code/Stage",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.AssetStaging",
+                          "version": "2.84.0"
+                        }
+                      },
+                      "AssetBucket": {
+                        "id": "AssetBucket",
+                        "path": "prod-remix-lambda-Site/site/S3Handler/Code/AssetBucket",
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_s3.BucketBase",
+                          "version": "2.84.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_s3_assets.Asset",
+                      "version": "2.84.0"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "prod-remix-lambda-Site/site/S3Handler/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                      "aws:cdk:cloudformation:props": {
+                        "code": {
+                          "s3Bucket": "cdk-hnb659fds-assets-140752286971-us-east-1",
+                          "s3Key": "5314dd0b83a9c16d227872e4b881e96d2361ae01b02d8bdc3b24c30fd31aa758.zip"
+                        },
+                        "role": {
+                          "Fn::GetAtt": [
+                            "siteS3HandlerServiceRole6D2CC8E3",
+                            "Arn"
+                          ]
+                        },
+                        "environment": {
+                          "variables": {
+                            "UPLOADER_FUNCTION_NAME": {
+                              "Ref": "siteS3Uploader2837C218"
+                            }
+                          }
+                        },
+                        "handler": "s3-handler.handler",
+                        "layers": [
+                          {
+                            "Ref": "siteAwsCliLayer359A0EF0"
+                          }
+                        ],
+                        "memorySize": 1024,
+                        "runtime": "python3.7",
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "remix-lambda"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "prod"
+                          }
+                        ],
+                        "timeout": 900
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_lambda.CfnFunction",
+                      "version": "2.84.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_lambda.Function",
+                  "version": "2.84.0"
+                }
+              },
+              "S3Deployment": {
+                "id": "S3Deployment",
+                "path": "prod-remix-lambda-Site/site/S3Deployment",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "prod-remix-lambda-Site/site/S3Deployment/Default",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnResource",
+                      "version": "2.84.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CustomResource",
+                  "version": "2.84.0"
+                }
+              },
+              "CloudFrontFunction": {
+                "id": "CloudFrontFunction",
+                "path": "prod-remix-lambda-Site/site/CloudFrontFunction",
                 "children": {
                   "Resource": {
                     "id": "Resource",
-                    "path": "brocktho-staging-my-remix-app-Site/site/Parameter_url/Resource",
+                    "path": "prod-remix-lambda-Site/site/CloudFrontFunction/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::CloudFront::Function",
+                      "aws:cdk:cloudformation:props": {
+                        "functionCode": "\nfunction handler(event) {\n  var request = event.request;\n  request.headers[\"x-forwarded-host\"] = request.headers.host;\n  \n  return request;\n}",
+                        "functionConfig": {
+                          "comment": "us-east-1prodremixlambdaSitesiteCloudFrontFunction2C6B944A",
+                          "runtime": "cloudfront-js-1.0"
+                        },
+                        "name": "us-east-1prodremixlambdaSitesiteCloudFrontFunction2C6B944A",
+                        "autoPublish": true
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_cloudfront.CfnFunction",
+                      "version": "2.84.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_cloudfront.Function",
+                  "version": "2.84.0"
+                }
+              },
+              "ServerCache": {
+                "id": "ServerCache",
+                "path": "prod-remix-lambda-Site/site/ServerCache",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "prod-remix-lambda-Site/site/ServerCache/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::CloudFront::CachePolicy",
+                      "aws:cdk:cloudformation:props": {
+                        "cachePolicyConfig": {
+                          "name": "prodremixlambdaSitesiteServerCache8154BFED-us-east-1",
+                          "comment": "SST server response cache policy",
+                          "minTtl": 0,
+                          "maxTtl": 31536000,
+                          "defaultTtl": 0,
+                          "parametersInCacheKeyAndForwardedToOrigin": {
+                            "cookiesConfig": {
+                              "cookieBehavior": "all"
+                            },
+                            "headersConfig": {
+                              "headerBehavior": "none"
+                            },
+                            "enableAcceptEncodingGzip": true,
+                            "enableAcceptEncodingBrotli": true,
+                            "queryStringsConfig": {
+                              "queryStringBehavior": "all"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_cloudfront.CfnCachePolicy",
+                      "version": "2.84.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_cloudfront.CachePolicy",
+                  "version": "2.84.0"
+                }
+              },
+              "ServerOriginRequestPolicy": {
+                "id": "ServerOriginRequestPolicy",
+                "path": "prod-remix-lambda-Site/site/ServerOriginRequestPolicy",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.Resource",
+                  "version": "2.84.0"
+                }
+              },
+              "Distribution": {
+                "id": "Distribution",
+                "path": "prod-remix-lambda-Site/site/Distribution",
+                "children": {
+                  "Origin1": {
+                    "id": "Origin1",
+                    "path": "prod-remix-lambda-Site/site/Distribution/Origin1",
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.1.156"
+                    }
+                  },
+                  "Origin2": {
+                    "id": "Origin2",
+                    "path": "prod-remix-lambda-Site/site/Distribution/Origin2",
+                    "children": {
+                      "S3Origin": {
+                        "id": "S3Origin",
+                        "path": "prod-remix-lambda-Site/site/Distribution/Origin2/S3Origin",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "prod-remix-lambda-Site/site/Distribution/Origin2/S3Origin/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+                              "aws:cdk:cloudformation:props": {
+                                "cloudFrontOriginAccessIdentityConfig": {
+                                  "comment": "Identity for prodremixlambdaSitesiteDistributionOrigin2FE504D1A"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_cloudfront.CfnCloudFrontOriginAccessIdentity",
+                              "version": "2.84.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_cloudfront.OriginAccessIdentity",
+                          "version": "2.84.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "constructs.Construct",
+                      "version": "10.1.156"
+                    }
+                  },
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "prod-remix-lambda-Site/site/Distribution/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::CloudFront::Distribution",
+                      "aws:cdk:cloudformation:props": {
+                        "distributionConfig": {
+                          "enabled": true,
+                          "origins": [
+                            {
+                              "domainName": {
+                                "Fn::Select": [
+                                  0,
+                                  {
+                                    "Fn::Split": [
+                                      "/",
+                                      {
+                                        "Fn::Select": [
+                                          1,
+                                          {
+                                            "Fn::Split": [
+                                              "//",
+                                              {
+                                                "Fn::GetAtt": [
+                                                  "siteServerFunctionFunctionUrl1B09C490",
+                                                  "FunctionUrl"
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              "id": "prodremixlambdaSitesiteDistributionOrigin10962171E",
+                              "customOriginConfig": {
+                                "originSslProtocols": [
+                                  "TLSv1.2"
+                                ],
+                                "originProtocolPolicy": "https-only",
+                                "originReadTimeout": 10
+                              }
+                            },
+                            {
+                              "domainName": {
+                                "Fn::GetAtt": [
+                                  "siteS3Bucket2B2851F3",
+                                  "RegionalDomainName"
+                                ]
+                              },
+                              "id": "prodremixlambdaSitesiteDistributionOrigin2FE504D1A",
+                              "s3OriginConfig": {
+                                "originAccessIdentity": {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      "origin-access-identity/cloudfront/",
+                                      {
+                                        "Ref": "siteDistributionOrigin2S3Origin49B86EE9"
+                                      }
+                                    ]
+                                  ]
+                                }
+                              }
+                            }
+                          ],
+                          "defaultCacheBehavior": {
+                            "pathPattern": "*",
+                            "targetOriginId": "prodremixlambdaSitesiteDistributionOrigin10962171E",
+                            "allowedMethods": [
+                              "GET",
+                              "HEAD",
+                              "OPTIONS",
+                              "PUT",
+                              "PATCH",
+                              "POST",
+                              "DELETE"
+                            ],
+                            "cachedMethods": [
+                              "GET",
+                              "HEAD",
+                              "OPTIONS"
+                            ],
+                            "cachePolicyId": {
+                              "Ref": "siteServerCacheDD54ACDF"
+                            },
+                            "compress": true,
+                            "originRequestPolicyId": "b689b0a8-53d0-40ab-baf2-68738e2966ac",
+                            "viewerProtocolPolicy": "redirect-to-https",
+                            "functionAssociations": [
+                              {
+                                "functionArn": {
+                                  "Fn::GetAtt": [
+                                    "siteCloudFrontFunctionE91DD486",
+                                    "FunctionARN"
+                                  ]
+                                },
+                                "eventType": "viewer-request"
+                              }
+                            ]
+                          },
+                          "aliases": [],
+                          "cacheBehaviors": [
+                            {
+                              "pathPattern": "build/*",
+                              "targetOriginId": "prodremixlambdaSitesiteDistributionOrigin2FE504D1A",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+                              "compress": true,
+                              "viewerProtocolPolicy": "redirect-to-https"
+                            },
+                            {
+                              "pathPattern": "favicon.ico",
+                              "targetOriginId": "prodremixlambdaSitesiteDistributionOrigin2FE504D1A",
+                              "allowedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachedMethods": [
+                                "GET",
+                                "HEAD",
+                                "OPTIONS"
+                              ],
+                              "cachePolicyId": "658327ea-f89d-4fab-a63d-7e88639e58f6",
+                              "compress": true,
+                              "viewerProtocolPolicy": "redirect-to-https"
+                            }
+                          ],
+                          "defaultRootObject": "",
+                          "httpVersion": "http2",
+                          "ipv6Enabled": true
+                        },
+                        "tags": [
+                          {
+                            "key": "sst:app",
+                            "value": "remix-lambda"
+                          },
+                          {
+                            "key": "sst:stage",
+                            "value": "prod"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_cloudfront.CfnDistribution",
+                      "version": "2.84.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_cloudfront.Distribution",
+                  "version": "2.84.0"
+                }
+              },
+              "ServerFunctionInvalidatorPolicy": {
+                "id": "ServerFunctionInvalidatorPolicy",
+                "path": "prod-remix-lambda-Site/site/ServerFunctionInvalidatorPolicy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "prod-remix-lambda-Site/site/ServerFunctionInvalidatorPolicy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                      "aws:cdk:cloudformation:props": {
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "cloudfront:CreateInvalidation",
+                              "Effect": "Allow",
+                              "Resource": {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":cloudfront::140752286971:distribution/",
+                                    {
+                                      "Ref": "siteDistribution706F5265"
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "policyName": "siteServerFunctionInvalidatorPolicy004B2ED1",
+                        "roles": [
+                          {
+                            "Ref": "siteServerFunctionServiceRole8328A688"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                      "version": "2.84.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Policy",
+                  "version": "2.84.0"
+                }
+              },
+              "CloudFrontInvalidatorPolicy": {
+                "id": "CloudFrontInvalidatorPolicy",
+                "path": "prod-remix-lambda-Site/site/CloudFrontInvalidatorPolicy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "prod-remix-lambda-Site/site/CloudFrontInvalidatorPolicy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                      "aws:cdk:cloudformation:props": {
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": [
+                                "cloudfront:GetInvalidation",
+                                "cloudfront:CreateInvalidation"
+                              ],
+                              "Effect": "Allow",
+                              "Resource": {
+                                "Fn::Join": [
+                                  "",
+                                  [
+                                    "arn:",
+                                    {
+                                      "Ref": "AWS::Partition"
+                                    },
+                                    ":cloudfront::140752286971:distribution/",
+                                    {
+                                      "Ref": "siteDistribution706F5265"
+                                    }
+                                  ]
+                                ]
+                              }
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "policyName": "siteCloudFrontInvalidatorPolicyEE18C654",
+                        "roles": [
+                          {
+                            "Ref": "CustomResourceHandlerServiceRole41AEC181"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_iam.CfnPolicy",
+                      "version": "2.84.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_iam.Policy",
+                  "version": "2.84.0"
+                }
+              },
+              "CloudFrontInvalidator": {
+                "id": "CloudFrontInvalidator",
+                "path": "prod-remix-lambda-Site/site/CloudFrontInvalidator",
+                "children": {
+                  "Default": {
+                    "id": "Default",
+                    "path": "prod-remix-lambda-Site/site/CloudFrontInvalidator/Default",
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.CfnResource",
+                      "version": "2.84.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CustomResource",
+                  "version": "2.84.0"
+                }
+              },
+              "Parameter_url": {
+                "id": "Parameter_url",
+                "path": "prod-remix-lambda-Site/site/Parameter_url",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "prod-remix-lambda-Site/site/Parameter_url/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::SSM::Parameter",
                       "aws:cdk:cloudformation:props": {
                         "type": "String",
-                        "value": "localhost",
-                        "name": "/sst/my-remix-app/brocktho-staging/RemixSite/site/url",
+                        "value": {
+                          "Fn::Join": [
+                            "",
+                            [
+                              "https://",
+                              {
+                                "Fn::GetAtt": [
+                                  "siteDistribution706F5265",
+                                  "DomainName"
+                                ]
+                              }
+                            ]
+                          ]
+                        },
+                        "name": "/sst/remix-lambda/prod/RemixSite/site/url",
                         "tags": {
-                          "sst:app": "my-remix-app",
-                          "sst:stage": "brocktho-staging"
+                          "sst:app": "remix-lambda",
+                          "sst:stage": "prod"
                         }
                       }
                     },
@@ -649,17 +1922,51 @@
               "version": "10.1.156"
             }
           },
+          "Custom::S3AutoDeleteObjectsCustomResourceProvider": {
+            "id": "Custom::S3AutoDeleteObjectsCustomResourceProvider",
+            "path": "prod-remix-lambda-Site/Custom::S3AutoDeleteObjectsCustomResourceProvider",
+            "children": {
+              "Staging": {
+                "id": "Staging",
+                "path": "prod-remix-lambda-Site/Custom::S3AutoDeleteObjectsCustomResourceProvider/Staging",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.AssetStaging",
+                  "version": "2.84.0"
+                }
+              },
+              "Role": {
+                "id": "Role",
+                "path": "prod-remix-lambda-Site/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.84.0"
+                }
+              },
+              "Handler": {
+                "id": "Handler",
+                "path": "prod-remix-lambda-Site/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.84.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CustomResourceProvider",
+              "version": "2.84.0"
+            }
+          },
           "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a": {
             "id": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a",
-            "path": "brocktho-staging-my-remix-app-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a",
+            "path": "prod-remix-lambda-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a",
             "children": {
               "Code": {
                 "id": "Code",
-                "path": "brocktho-staging-my-remix-app-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code",
+                "path": "prod-remix-lambda-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code",
                 "children": {
                   "Stage": {
                     "id": "Stage",
-                    "path": "brocktho-staging-my-remix-app-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code/Stage",
+                    "path": "prod-remix-lambda-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code/Stage",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.AssetStaging",
                       "version": "2.84.0"
@@ -667,7 +1974,7 @@
                   },
                   "AssetBucket": {
                     "id": "AssetBucket",
-                    "path": "brocktho-staging-my-remix-app-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code/AssetBucket",
+                    "path": "prod-remix-lambda-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code/AssetBucket",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_s3.BucketBase",
                       "version": "2.84.0"
@@ -681,11 +1988,11 @@
               },
               "ServiceRole": {
                 "id": "ServiceRole",
-                "path": "brocktho-staging-my-remix-app-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole",
+                "path": "prod-remix-lambda-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole",
                 "children": {
                   "ImportServiceRole": {
                     "id": "ImportServiceRole",
-                    "path": "brocktho-staging-my-remix-app-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/ImportServiceRole",
+                    "path": "prod-remix-lambda-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/ImportServiceRole",
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.Resource",
                       "version": "2.84.0"
@@ -693,7 +2000,7 @@
                   },
                   "Resource": {
                     "id": "Resource",
-                    "path": "brocktho-staging-my-remix-app-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/Resource",
+                    "path": "prod-remix-lambda-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/Resource",
                     "attributes": {
                       "aws:cdk:cloudformation:type": "AWS::IAM::Role",
                       "aws:cdk:cloudformation:props": {
@@ -726,11 +2033,11 @@
                         "tags": [
                           {
                             "key": "sst:app",
-                            "value": "my-remix-app"
+                            "value": "remix-lambda"
                           },
                           {
                             "key": "sst:stage",
-                            "value": "brocktho-staging"
+                            "value": "prod"
                           }
                         ]
                       }
@@ -742,11 +2049,11 @@
                   },
                   "DefaultPolicy": {
                     "id": "DefaultPolicy",
-                    "path": "brocktho-staging-my-remix-app-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy",
+                    "path": "prod-remix-lambda-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "brocktho-staging-my-remix-app-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy/Resource",
+                        "path": "prod-remix-lambda-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
                           "aws:cdk:cloudformation:props": {
@@ -790,7 +2097,7 @@
               },
               "Resource": {
                 "id": "Resource",
-                "path": "brocktho-staging-my-remix-app-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Resource",
+                "path": "prod-remix-lambda-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Resource",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
                   "version": "2.84.0"
@@ -802,9 +2109,17 @@
               "version": "10.1.156"
             }
           },
+          "SSTStackOutputurl": {
+            "id": "SSTStackOutputurl",
+            "path": "prod-remix-lambda-Site/SSTStackOutputurl",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnOutput",
+              "version": "2.84.0"
+            }
+          },
           "SSTStackOutputSSTMetadata": {
             "id": "SSTStackOutputSSTMetadata",
-            "path": "brocktho-staging-my-remix-app-Site/SSTStackOutputSSTMetadata",
+            "path": "prod-remix-lambda-Site/SSTStackOutputSSTMetadata",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnOutput",
               "version": "2.84.0"
@@ -812,7 +2127,7 @@
           },
           "BootstrapVersion": {
             "id": "BootstrapVersion",
-            "path": "brocktho-staging-my-remix-app-Site/BootstrapVersion",
+            "path": "prod-remix-lambda-Site/BootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnParameter",
               "version": "2.84.0"
@@ -820,7 +2135,7 @@
           },
           "CheckBootstrapVersion": {
             "id": "CheckBootstrapVersion",
-            "path": "brocktho-staging-my-remix-app-Site/CheckBootstrapVersion",
+            "path": "prod-remix-lambda-Site/CheckBootstrapVersion",
             "constructInfo": {
               "fqn": "aws-cdk-lib.CfnRule",
               "version": "2.84.0"

@@ -1,5 +1,5 @@
-import vine from "../vine";
 import { relations, sql } from "drizzle-orm";
+import { z } from "zod";
 import {
   index,
   mysqlTable,
@@ -9,6 +9,7 @@ import {
   varchar,
 } from "drizzle-orm/mysql-core";
 import crypto from "crypto";
+import { createInsertSchema } from "drizzle-zod";
 
 export function DefaultId(value: unknown) {
   if (!value) {
@@ -42,11 +43,8 @@ export const user = mysqlTable(
   })
 );
 
-export const CreateUserModel = vine.then((v) => {
-  return v.object({
-    id: v.string().parse(DefaultId),
-    email: v.string().minLength(1).maxLength(191),
-  });
+export const CreateUserModel = createInsertSchema(user).extend({
+  password: z.string().min(8),
 });
 
 export const userRelations = relations(user, ({ one, many }) => ({
@@ -76,8 +74,8 @@ export const note = mysqlTable(
     id: varchar("id", { length: 191 })
       .primaryKey()
       .default(sql`(uuid())`),
-    title: varchar("title", { length: 191 }),
-    body: text("body"),
+    title: varchar("title", { length: 191 }).notNull(),
+    body: text("body").notNull(),
     createdAt: timestamp("createdAt").defaultNow(),
     updatedAt: timestamp("updatedAt").onUpdateNow(),
     userId: varchar("userId", { length: 191 }).references(() => user.id),
@@ -87,13 +85,7 @@ export const note = mysqlTable(
   })
 );
 
-export const CreateNoteModel = vine.then((v) =>
-  v.object({
-    id: v.string().parse(DefaultId),
-    title: v.string().minLength(1).maxLength(191),
-    body: v.string().minLength(1),
-  })
-);
+export const CreateNoteModel = createInsertSchema(note);
 
 export const noteOneRelations = relations(note, ({ one }) => ({
   user: one(user, {
