@@ -1,8 +1,10 @@
 import bcrypt from "bcryptjs";
 import { eq } from "drizzle-orm";
 import invariant from "tiny-invariant";
+import { ulid } from "ulid";
+import type { z } from "zod";
 import { drizzle } from "~/db.server";
-import { password, user } from "~/db/schema";
+import { type CreateUserModel, password, user } from "~/db/schema";
 
 export async function getUserById(id: string) {
   return drizzle.query.user.findFirst({
@@ -16,13 +18,19 @@ export async function getUserByEmail(email: string) {
   });
 }
 
-export async function createUser(email: string, pass: string) {
+export async function createUser({
+  email,
+  avatar,
+  password: pass,
+}: z.infer<typeof CreateUserModel>) {
   const hashedPassword = await bcrypt.hash(pass, 10);
-
+  const id = ulid();
   const created_user = await drizzle
     .insert(user)
     .values({
+      id,
       email,
+      avatar,
     })
     .then(() => {
       return drizzle.query.user.findFirst({

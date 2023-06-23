@@ -1,4 +1,5 @@
 import { and, eq } from "drizzle-orm";
+import { ulid } from "ulid";
 import { drizzle } from "~/db.server";
 import { note } from "~/db/schema";
 
@@ -22,7 +23,7 @@ export function createNote({
   title: string;
   userId: string;
 }) {
-  const id = crypto.randomUUID();
+  const id = ulid();
   return drizzle
     .insert(note)
     .values({

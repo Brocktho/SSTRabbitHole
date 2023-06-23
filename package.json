@@ -5,6 +5,8 @@
   "scripts": {
     "generate": "drizzle-kit generate:mysql --out migrations-folder",
     "build": "remix build",
+    "migrate": "npx ts-node ./app/db/migrate",
+    "db:push": "drizzle-kit push:mysql --config ./drizzle.config.ts",
     "dev": "sst bind remix dev",
     "format": "prettier --write .",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
@@ -18,7 +20,8 @@
     "typecheck": "tsc && tsc -p cypress",
     "validate": "run-p \"test -- --run\" lint typecheck test:e2e:run",
     "sst:deploy": "sst deploy",
-    "sst:dev": "sst dev"
+    "sst:dev": "sst dev",
+    "deploy": "NODE_ENV=production sst deploy --stage prod"
   },
   "prettier": {},
   "eslintIgnore": [
@@ -38,7 +41,9 @@
     "isbot": "^3.6.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "remix-typedjson": "^0.1.7",
     "tiny-invariant": "^1.3.1",
+    "ulid": "^2.3.0",
     "zod": "^3.21.4"
   },
   "devDependencies": {
@@ -61,7 +66,7 @@
     "cookie": "^0.5.0",
     "cross-env": "^7.0.3",
     "cypress": "^12.14.0",
-    "drizzle-kit": "^0.19.1",
+    "drizzle-kit": "^0.19.2",
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-cypress": "^2.13.3",

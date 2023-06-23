@@ -5,6 +5,8 @@ node_modules
 .env
 .sst
 
+cdk.context.json
+
 /cypress/screenshots
 /cypress/videos
 /prisma/data.db

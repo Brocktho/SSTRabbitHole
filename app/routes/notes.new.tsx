@@ -6,7 +6,7 @@ import { CreateNoteModel } from "~/db/schema";
 
 import { createNote } from "~/models/note.server";
 import { requireUserId } from "~/session.server";
-import { RequireFormModel } from "~/utils";
+import { RequireFormModel } from "~/utils/FormHelpers";
 
 export const action = async ({ request }: ActionArgs) => {
   const userId = await requireUserId(request);
